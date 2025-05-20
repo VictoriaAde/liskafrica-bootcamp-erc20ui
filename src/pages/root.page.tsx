@@ -7,6 +7,7 @@ import Wrapper from "@/components/shared/wrapper";
 import { getName } from "@/services/serviceFn";
 import { truncateAddr } from "@/lib/utils";
 import TransferForm from "@/components/shared/transfer-form";
+import { MdSignalWifiStatusbarConnectedNoInternet } from "react-icons/md";
 
 export default function RootPage() {
   const { isConnected, address } = useAccount();
@@ -56,12 +57,12 @@ export default function RootPage() {
           <TransferForm />
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center min-h-screen">
-          <h1 className="text-4xl font-bold">Please connect your wallet</h1>
-          <p className="mt-4 text-lg">
-            You need to be connected to access this page.
-          </p>
-        </div>
+        <div className="flex flex-col items-center justify-center h-full gap-3">
+        <MdSignalWifiStatusbarConnectedNoInternet className="size-20 text-blue-500 z-50" />
+        <p className="text-lg font-normal text-blue-500">
+          No account connected
+        </p>
+      </div>
       )}
     </Wrapper>
   );
